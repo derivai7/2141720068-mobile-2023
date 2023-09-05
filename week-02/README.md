@@ -15,9 +15,11 @@ Output yang diminta:
 ### Jawab:
 
 Code:
+
 ![Screenshot code_answer](docs/1_answer_code.png)
 
 Output:
+
 ![Screenshot result_answer](docs/1_answer_result.png)
 
 ### Soal 2
