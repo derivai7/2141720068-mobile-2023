@@ -72,8 +72,10 @@ prima ditemukan, maka tampilkan nama lengkap dan NIM Anda.
 Jawab:
 
 Kode:
+
 ![Screenshot langkah 2](docs/tugas/kode.png)
 
 Hasil:
+
 ![Screenshot langkah 2](docs/tugas/hasil.png)
 ![Screenshot langkah 2](docs/tugas/hasil-2.png)
