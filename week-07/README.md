@@ -20,6 +20,12 @@
 
 ---
 
+## Praktikum 4: Implementasi image section
+
+![Screenshot hasil praktikum 4](docs/praktikum/praktikum-4.png)
+
+---
+
 ## Basic Layout
 
 ### Row and Column
