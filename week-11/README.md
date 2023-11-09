@@ -4,7 +4,7 @@
 
 ## Hasil Praktikum 1
 
-<img src="docs/praktikum-1.gif" style="width: 400px" alt='Screenshot hasil_praktikum'>
+<img src="docs/praktikum-1.gif" style="width: 400px" alt='Screenshot hasil_praktikum 1'>
 
 ---
 
@@ -38,4 +38,32 @@ Secara keseluruhan, kode tersebut membuat tampilan Todo List yang bisa memperbar
 Langkah 11 - initState(): Metode initState() dipanggil tepat setelah widget dimasukkan ke dalam pohon widget (widget tree) dan sebelum build() dipanggil pertama kali. Ini adalah tempat yang tepat untuk melakukan inisialisasi yang berkaitan dengan BuildContext. Dalam kode tersebut, initState() digunakan untuk membuat ScrollController dan menambahkan listener kepadanya. Listener ini akan memindahkan fokus ke FocusNode baru setiap kali pengguna melakukan scroll.
 
 Langkah 13 - dispose(): Metode dispose() dipanggil ketika widget ini dihapus dari pohon widget dan akan melepaskan semua sumber daya yang dimiliki oleh widget. Dalam kode Anda, dispose() digunakan untuk membuang ScrollController yang telah dibuat sebelumnya.
+
+---
+
+## Hasil Praktikum 2
+
+<img src="docs/praktikum-2.gif" style="width: 400px" alt='Screenshot hasil_praktikum 2'>
+
+---
+
+## Penjelasan Langkah 1: Buat file plan_provider.dart
+
+InheritedWidget adalah sebuah widget khusus di Flutter yang dapat meneruskan data ke widget turunannya. Atau arti lain, InheritedWidget dapat menyimpan data di satu tempat dan kemudian mengaksesnya dari banyak widget lain tanpa harus melewati banyak parameter.
+
+Dalam kode tersebut, PlanProvider adalah sebuah InheritedWidget. Ini berarti bahwa PlanProvider dapat meneruskan ValueNotifier<Plan> ke widget turunannya.
+
+InheritedNotifier adalah sebuah InheritedWidget khusus yang dirancang untuk bekerja dengan objek yang mengimplementasikan Listenable, seperti ValueNotifier. InheritedNotifier secara otomatis akan memanggil updateShouldNotify setiap kali notifier berubah, dan akan memicu pembangunan ulang widget yang tergantung pada InheritedNotifier.
+
+---
+
+## Penjelasan Langkah 3: Tambah method pada model plan.dart
+
+Metode pada langkah 3 tersebut digunakan untuk menghitung jumlah tugas yang telah selesai dan membuat pesan tentang tingkat kelengkapan tugas.
+
+int get completedCount => tasks.where((task) => task.complete).length; adalah getter yang menghitung berapa banyak tugas dalam daftar tasks yang telah selesai. Ini dilakukan dengan memfilter tasks untuk hanya mencakup tugas yang complete (selesai), dan kemudian mengambil jumlahnya dengan length.
+
+String get completenessMessage => '$completedCount out of ${tasks.length} tasks'; adalah getter yang membuat pesan string yang menunjukkan berapa banyak tugas yang telah selesai dari total tugas. Ini menggunakan completedCount yang telah dihitung sebelumnya dan jumlah total tugas (tasks.length).
+
+Mengapa dilakukan demikian? Kode ini membantu dalam memberikan umpan balik visual kepada pengguna tentang progres mereka dalam menyelesaikan tugas. Dengan mengetahui berapa banyak tugas yang telah mereka selesaikan, pengguna dapat melacak kemajuan mereka dan merasa lebih termotivasi untuk menyelesaikan tugas yang tersisa.
 
