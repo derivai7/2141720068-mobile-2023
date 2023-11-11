@@ -8,13 +8,13 @@
 
 ---
 
-## Penjelasan Langkah 4: Buat file data_layer.dart
+## Penjelasan Langkah 4
 
 Kode export 'plan.dart'; dan export 'task.dart'; dalam kode tersebut digunakan untuk membuat library. Dengan kata lain, kode tersebut memungkinkan untuk mengorganisir kode menjadi berbagai file dan kemudian menggabungkannya kembali. Dengan cara ini, semua kelas, fungsi, dan variabel dari plan.dart dan task.dart akan tersedia di dalam kelas yang memanggil 'data_layer.dart'. Ini membuat kode lebih rapi dan mudah dikelola.
 
 ---
 
-## Penjelasan Langkah 6: buat plan_screen.dart
+## Penjelasan Langkah 6
 
 Variabel plan dalam kode tersebut digunakan untuk menyimpan data dari Plan. Plan mungkin adalah sebuah kelas yang berisi informasi tentang rencana atau tugas yang perlu dilakukan. Variabel ini digunakan dalam metode _buildList() dan _buildAddTaskButton() untuk membangun daftar tugas dan menambahkan tugas baru ke dalam daftar.
 
@@ -22,7 +22,7 @@ Mengenai mengapa plan dibuat sebagai konstanta (const Plan()), ini adalah cara u
 
 ---
 
-## Langkah 9: buat widget _buildTaskTile
+## Penjelasan Langkah 9
 
 Kode tersebut mendefinisikan sebuah widget yang menampilkan tugas dalam bentuk ListTile. ListTile adalah sebuah widget yang biasanya berisi hingga 3 baris teks, dan opsional leading dan trailing icons.
 
@@ -33,11 +33,11 @@ Secara keseluruhan, kode tersebut membuat tampilan Todo List yang bisa memperbar
 
 ---
 
-## Penjelasan Langkah 11: Tambah Scroll Listener dan Langkah 13: tambah method dispose()
+## Penjelasan Langkah 11
 
 Langkah 11 - initState(): Metode initState() dipanggil tepat setelah widget dimasukkan ke dalam pohon widget (widget tree) dan sebelum build() dipanggil pertama kali. Ini adalah tempat yang tepat untuk melakukan inisialisasi yang berkaitan dengan BuildContext. Dalam kode tersebut, initState() digunakan untuk membuat ScrollController dan menambahkan listener kepadanya. Listener ini akan memindahkan fokus ke FocusNode baru setiap kali pengguna melakukan scroll.
 
-Langkah 13 - dispose(): Metode dispose() dipanggil ketika widget ini dihapus dari pohon widget dan akan melepaskan semua sumber daya yang dimiliki oleh widget. Dalam kode Anda, dispose() digunakan untuk membuang ScrollController yang telah dibuat sebelumnya.
+Langkah 13 - dispose(): Metode dispose() dipanggil ketika widget ini dihapus dari pohon widget dan akan melepaskan semua sumber daya yang dimiliki oleh widget. Dalam kode tersebut, dispose() digunakan untuk membuang ScrollController yang telah dibuat sebelumnya.
 
 ---
 
@@ -47,7 +47,7 @@ Langkah 13 - dispose(): Metode dispose() dipanggil ketika widget ini dihapus dar
 
 ---
 
-## Penjelasan Langkah 1: Buat file plan_provider.dart
+## Penjelasan Langkah 1
 
 InheritedWidget adalah sebuah widget khusus di Flutter yang dapat meneruskan data ke widget turunannya. Atau arti lain, InheritedWidget dapat menyimpan data di satu tempat dan kemudian mengaksesnya dari banyak widget lain tanpa harus melewati banyak parameter.
 
@@ -57,7 +57,7 @@ InheritedNotifier adalah sebuah InheritedWidget khusus yang dirancang untuk beke
 
 ---
 
-## Penjelasan Langkah 3: Tambah method pada model plan.dart
+## Penjelasan Langkah 3
 
 Metode pada langkah 3 tersebut digunakan untuk menghitung jumlah tugas yang telah selesai dan membuat pesan tentang tingkat kelengkapan tugas.
 
@@ -66,4 +66,16 @@ int get completedCount => tasks.where((task) => task.complete).length; adalah ge
 String get completenessMessage => '$completedCount out of ${tasks.length} tasks'; adalah getter yang membuat pesan string yang menunjukkan berapa banyak tugas yang telah selesai dari total tugas. Ini menggunakan completedCount yang telah dihitung sebelumnya dan jumlah total tugas (tasks.length).
 
 Mengapa dilakukan demikian? Kode ini membantu dalam memberikan umpan balik visual kepada pengguna tentang progres mereka dalam menyelesaikan tugas. Dengan mengetahui berapa banyak tugas yang telah mereka selesaikan, pengguna dapat melacak kemajuan mereka dan merasa lebih termotivasi untuk menyelesaikan tugas yang tersisa.
+
+---
+
+## Hasil Praktikum 3
+
+<img src="docs/praktikum-3.gif" style="width: 400px" alt='Screenshot hasil_praktikum 3'>
+
+--
+
+## Penjelasan Praktikum 3
+
+Diagram tersebut menunjukkan bahwa aplikasi tersebut memiliki dua fitur utama, yaitu membuat rencana perjalanan baru dan membuat detail pekerjaan pada rencana perjalanan yang sudah ada. Di halaman pertama, yaitu halaman PlanCreatorScreen, pengguna dapat memasukkan nama rencana perjalanan. Setelah itu, pengguna dapat mengklik rencana perjalanan tersebut untuk berpindah ke halaman PlanScreen. Pada halaman PlanScreen, pengguna dapat memasukkan detail pekerjaan, seperti todolist. Setelah pengguna memasukkan semua detail pekerjaan, data rencana perjalanan akan disimpan ke dalam komponen PlanProvider.
 
