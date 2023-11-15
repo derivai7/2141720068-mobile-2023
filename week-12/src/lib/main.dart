@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
@@ -49,13 +50,15 @@ class _FuturePageState extends State<FuturePage> {
             const Spacer(),
             ElevatedButton(
               onPressed: () {
-                getNumber().then((value) {
-                  setState(() {
-                    result = value.toString();
-                  });
-                }).catchError((e) {
-                  result = 'An error occurred';
-                });
+                returnFG();
+
+                // getNumber().then((value) {
+                //   setState(() {
+                //     result = value.toString();
+                //   });
+                // }).catchError((e) {
+                //   result = 'An error occurred';
+                // });
 
                 //count();
 
@@ -127,5 +130,23 @@ class _FuturePageState extends State<FuturePage> {
     } catch (_) {
       completer.completeError({});
     }
+  }
+
+  void returnFG() {
+    FutureGroup<int> futureGroup = FutureGroup<int>();
+    futureGroup.add(returnOneAsync());
+    futureGroup.add(returnTwoAsync());
+    futureGroup.add(returnThreeAsync());
+    futureGroup.close();
+    futureGroup.future.then((List<int> value) {
+      int total = 0;
+
+      for (var element in value) {
+        total += element;
+      }
+      setState(() {
+        result = total.toString();
+      });
+    });
   }
 }
