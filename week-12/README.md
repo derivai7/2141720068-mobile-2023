@@ -28,3 +28,12 @@ Maksud dari substring dan catchError dalam adalah:
 
 <br>
 <img src="docs/soal-4.gif" style="width: 400px" alt='Screenshot hasil soal 4'>
+
+---
+
+## Soal 5
+
+Kode tersebut menggunakan Completer untuk membuat Future yang bisa diselesaikan nanti. Jika memanggil fungsi getNumber, maka akan mengembalikan Future yang diselesaikan oleh fungsi calculate dengan nilai 42 setelah 5 detik.
+
+<br>
+<img src="docs/soal-5.gif" style="width: 400px" alt='Screenshot hasil soal 5'>
