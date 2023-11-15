@@ -37,3 +37,11 @@ Kode tersebut menggunakan Completer untuk membuat Future yang bisa diselesaikan 
 
 <br>
 <img src="docs/soal-5.gif" style="width: 400px" alt='Screenshot hasil soal 5'>
+
+---
+
+## Soal 6
+
+Kode tersebut menambahkan penanganan kesalahan pada Future. Jika Future berhasil, result diatur menjadi 42. Jika terjadi kesalahan, result menjadi ‘An error occurred’.
+
+Untuk hasil capture sama seperti soal 5.
