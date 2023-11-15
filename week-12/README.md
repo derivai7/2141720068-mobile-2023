@@ -51,3 +51,12 @@ Untuk hasil capture sama seperti soal 5.
 ## Soal 7
 
 <img src="docs/soal-7.gif" style="width: 400px" alt='Screenshot hasil soal 7'>
+
+## Soal 8
+
+Perbedaan langkah 1 dan langkah 4:
+
+- **Langkah 1:** menggunakan FutureGroup untuk menambahkan Future secara dinamis dan menunggu semuanya selesai. 
+- **Langkah 4**: menggunakan Future.wait untuk menunggu sekelompok Future yang diketahui sejak awal. 
+
+Jadi, FutureGroup berguna jika Future ditambahkan seiring berjalannya waktu, sedangkan Future.wait efektif jika semua Future diketahui dari awal.
