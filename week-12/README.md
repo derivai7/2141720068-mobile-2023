@@ -88,3 +88,11 @@ Perbedaan antara langkah 1 dan langkah 4 pada praktikum 5 adalah sebagai berikut
 <img src="docs/soal-12.gif" style="width: 400px" alt='Screenshot hasil soal 12'>
 
 Ketika dijalankan di browser seperti Chrome, akses ke Geolocation juga dapat dilakukan seperti di perangkat mobile. Hal ini karena sebagian besar browser modern mendukung API Geolocation, dimana pengembang web bisa mengakses informasi lokasi pengguna dengan memicu permintaan izin.
+
+---
+
+## Soal 13
+
+Dari segi antarmuka pengguna (UI), kedua kode tersebut mirip dengan soal 12. Meskipun cara implementasinya sedikit berbeda, keduanya memiliki tujuan yang sama, yaitu menampilkan lokasi atau indikator loading.
+
+Untuk hasil capture, sama seperti soal 12.
