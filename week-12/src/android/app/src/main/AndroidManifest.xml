@@ -1,4 +1,11 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="TODO"
+          android:versionName="TODO">
+    <!-- Izin untuk akses lokasi fine (presisi tinggi) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Izin untuk akses lokasi coarse (presisi rendah) -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:label="src"
         android:name="${applicationName}"
