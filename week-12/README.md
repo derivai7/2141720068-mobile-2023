@@ -95,4 +95,8 @@ Ketika dijalankan di browser seperti Chrome, akses ke Geolocation juga dapat dil
 
 Dari segi antarmuka pengguna (UI), kedua kode tersebut mirip dengan soal 12. Meskipun cara implementasinya sedikit berbeda, keduanya memiliki tujuan yang sama, yaitu menampilkan lokasi atau indikator loading.
 
-Untuk hasil capture, sama seperti soal 12.
+---
+
+## Soal 14
+
+UI masih sama dengan langkah sebelumnya, namun terdapat penanganan kasus error pada langkah ini. Meskipun demikian, penanganan error ini tidak berdampak langsung pada tampilan antarmuka pengguna (UI).
