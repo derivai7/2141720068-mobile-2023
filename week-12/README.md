@@ -100,3 +100,11 @@ Dari segi antarmuka pengguna (UI), kedua kode tersebut mirip dengan soal 12. Mes
 ## Soal 14
 
 UI masih sama dengan langkah sebelumnya, namun terdapat penanganan kasus error pada langkah ini. Meskipun demikian, penanganan error ini tidak berdampak langsung pada tampilan antarmuka pengguna (UI).
+
+---
+
+## Soal 16
+
+<img src="docs/soal-16.gif" style="width: 400px" alt='Screenshot hasil soal 16'>
+
+Ketika salah satu tombol di `NavigationSecond` ditekan, warna yang dipilih pada tombol tersebut dikembalikan ke `NavigationFirst`, dan UI diperbarui dengan warna baru. Hal ini terjadi karena `Navigator.pop(context, color)` mengembalikan nilai `color` ke `Navigator.push(...)`, yang kemudian digunakan untuk memperbarui `color` di `NavigationFirst`.

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:src/geolocation.dart';
+import 'package:src/navigation_dialog.dart';
+import 'package:src/navigation_first.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +25,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
-      home: const LocationScreen(),
+      // home: const NavigationFirst()
+      // home: const LocationScreen(),
       // home: const FuturePage(),
     );
   }
