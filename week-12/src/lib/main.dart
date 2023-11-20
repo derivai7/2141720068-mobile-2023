@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
+      home: const NavigationDialogScreen(),
       // home: const NavigationFirst()
       // home: const LocationScreen(),
       // home: const FuturePage(),

@@ -108,3 +108,9 @@ UI masih sama dengan langkah sebelumnya, namun terdapat penanganan kasus error p
 <img src="docs/soal-16.gif" style="width: 400px" alt='Screenshot hasil soal 16'>
 
 Ketika salah satu tombol di `NavigationSecond` ditekan, warna yang dipilih pada tombol tersebut dikembalikan ke `NavigationFirst`, dan UI diperbarui dengan warna baru. Hal ini terjadi karena `Navigator.pop(context, color)` mengembalikan nilai `color` ke `Navigator.push(...)`, yang kemudian digunakan untuk memperbarui `color` di `NavigationFirst`.
+
+## Soal 17
+
+<img src="docs/soal-17.gif" style="width: 400px" alt='Screenshot hasil soal 17'>
+
+Kode tersebut hampir sama dengan langkah sebelumnya, tetapi dalam langkah ini menggunakan `showDialog`. Ini berarti pengguna memilih warna dalam dialog, dan warna tersebut dikembalikan ke halaman saat ini ketika pengguna menekan tombol. Meskipun dialog ditutup, pengguna tetap berada di halaman yang sama.
