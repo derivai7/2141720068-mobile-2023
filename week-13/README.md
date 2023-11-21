@@ -13,3 +13,11 @@ Kode tersebut adalah sebuah generator dalam Dart yang menggunakan `Stream.period
 ## Soal 4
 
 <img src="docs/soal-4.gif" style="width: 400px" alt='Screenshot hasil soal 4'>
+
+## Soal 5
+
+Dalam Dart, `listen` dan `await for` digunakan untuk menangani event dari sebuah stream. Berikut adalah perbedaan utama antara keduanya:
+
+- **listen:** Fungsi ini mendaftarkan handler dan eksekusi kode berlanjut setelahnya. Ini berarti bahwa kode setelah pemanggilan `listen` akan dieksekusi segera, tanpa menunggu stream selesai. Dalam kode Anda, `listen` akan membuat `setState` dipanggil setiap kali event baru datang dari `colorStream.getColors()`, dan kode setelah pemanggilan `listen` akan dieksekusi segera.
+
+- **await for:** Ini akan menahan eksekusi sampai event berikutnya datang atau sampai stream selesai. Dalam kode Anda, `await for` akan membuat `setState` dipanggil setiap kali event baru datang dari `colorStream.getColors()`, dan kode setelah loop `await for` tidak akan dieksekusi sampai semua event dalam stream telah diproses.
