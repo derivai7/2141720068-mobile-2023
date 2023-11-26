@@ -103,3 +103,19 @@ Berikut penjelasannya langkah 3 dan 7 dalam kode tersebut:
 - **Langkah 3:** Ini adalah definisi dari kelas `NumberStream` yang memiliki metode `getNumbers`. Metode ini berperan sebagai generator yang menggunakan `Stream.periodic` untuk menghasilkan event setiap detik. Nilai yang dihasilkan oleh setiap event adalah angka acak antara 0 dan 9.
 
 - **Langkah 7:** Ini merupakan bagian dari metode `build` yang mengembalikan sebuah `StreamBuilder`. `StreamBuilder` ini berfungsi untuk mendengarkan stream dari `numberStream` dan membangun ulang widget setiap kali event baru datang dari stream. Jika stream menghasilkan error, maka `Text('Error')` akan ditampilkan. Jika stream menghasilkan data, maka data tersebut akan ditampilkan dalam `Text` widget. Jika tidak ada data atau error, maka `SizedBox.shrink()` ditampilkan untuk membuat widget dengan ukuran sekecil mungkin agar tidak memberikan dimensi yang memengaruhi tata letak umum.
+
+<img src="docs/soal-12.gif" style="width: 400px" alt='Screenshot hasil soal 12'>
+
+---
+
+## Soal 13
+
+Langkah ini menerapkan konsep Business Logic Component (BLoC) dalam Flutter. BLoC adalah pola desain yang digunakan untuk memisahkan logika bisnis dari antarmuka pengguna, memudahkan pengujian, dan pemeliharaan kode. Pada UI (`RandomScreen`), `StreamBuilder` digunakan untuk membangun widget berdasarkan data terbaru dari `randomNumber` stream. Setiap kali tombol ditekan, event baru ditambahkan ke `generateRandom` sink, untuk pembuatan angka acak baru, dan pembaruan antarmuka pengguna. Ini adalah contoh bagaimana BLoC memisahkan logika bisnis (pembuatan angka acak) dari antarmuka pengguna (pembaruan tampilan berdasarkan angka acak).
+
+Konsep BLoC terletak pada kelas `RandomNumberBloc`. Kelas ini mengatur aliran data melalui `StreamController` dan `Sink`. Berikut penjelasannya:
+
+- `_generateRandomController` dan `_randomNumberController` adalah dua `StreamController`. `_generateRandomController` digunakan untuk pembuatan angka acak, sedangkan `_randomNumberController` digunakan untuk mengirim angka acak tersebut ke antarmuka pengguna.
+- `get generateRandom` dan `get randomNumber` adalah getter yang mengembalikan `Sink` dan `Stream` dari `StreamController` masing-masing.
+- Dalam konstruktor `RandomNumberBloc`, metode `listen` dipanggil pada `_generateRandomController.stream`. Setiap kali event baru datang ke `_generateRandomController`, sebuah angka acak dihasilkan dan ditambahkan ke `_randomNumberController`.
+
+<img src="docs/soal-13.gif" style="width: 400px" alt='Screenshot hasil soal 13'>
