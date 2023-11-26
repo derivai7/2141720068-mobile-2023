@@ -42,11 +42,11 @@ Langkah 8 dan 10 dalam kode tersebut merupakan bagian dari implementasi stream d
 
 Berikut penjelasan Langkah 13 hingga 15:
 
-- Langkah 13: Ini adalah implementasi dari metode `addError` yang menambahkan sebuah error ke dalam stream menggunakan `controller.sink.addError('error')`. Ini berarti bahwa setiap kali metode `addError` dipanggil, sebuah event error akan ditambahkan ke dalam stream.
+- **Langkah 13:** Ini adalah implementasi dari metode `addError` yang menambahkan sebuah error ke dalam stream menggunakan `controller.sink.addError('error')`. Ini berarti bahwa setiap kali metode `addError` dipanggil, sebuah event error akan ditambahkan ke dalam stream.
 
-- Langkah 14: Dalam kode tersebut, menambahkan `onError` digunakan untuk menangani error yang datang dari stream. Fungsi ini memperbarui `lastNumber` menjadi -1 setiap kali error terjadi.
+- **Langkah 14:** Dalam kode tersebut, menambahkan `onError` digunakan untuk menangani error yang datang dari stream. Fungsi ini memperbarui `lastNumber` menjadi -1 setiap kali error terjadi.
 
-- Langkah 15: Ini adalah implementasi dari metode `addRandomNumber` yang sekarang memanggil `numberStream.addError()`. Ini berarti bahwa setiap kali metode `addRandomNumber` dipanggil, sebuah event error akan ditambahkan ke dalam stream dan fungsi yang didaftarkan dalam `onError` akan dipanggil.
+- **Langkah 15:** Ini adalah implementasi dari metode `addRandomNumber` yang sekarang memanggil `numberStream.addError()`. Ini berarti bahwa setiap kali metode `addRandomNumber` dipanggil, sebuah event error akan ditambahkan ke dalam stream dan fungsi yang didaftarkan dalam `onError` akan dipanggil.
 
 ---
 
@@ -61,5 +61,21 @@ Langkah 1 hingga 3 dalam kode tersebut adalah implementasi stream dengan menggun
 - **Langkah 3:** Stream diubah dengan `stream.transform(transformer)`. Fungsi ini memperbarui `lastNumber` dengan nilai event terbaru. `onError` digunakan untuk menangani error yang datang dari stream dan memperbarui `lastNumber` menjadi -1 setiap kali error terjadi.
 
 <img src="docs/soal-8.gif" style="width: 400px" alt='Screenshot hasil soal 8'>
+
+---
+
+## Soal 9
+
+Langkah 2, 6, dan 8 dalam kode tersebut adalah implementasi `StreamSubscription`. Berikut penjelasannya:
+
+- **Langkah 2:** `stream.listen` digunakan untuk mendaftarkan sebuah fungsi yang akan dipanggil setiap kali event baru datang dari stream. Fungsi ini memperbarui `lastNumber` dengan nilai event terbaru. Langganan ke stream disimpan dalam `subscription` untuk pembatalan langganan di kemudian hari.
+
+- **Langkah 6:** `subscription.cancel()` dipanggil untuk membatalkan langganan ke stream dan mencegah memory leak.
+
+- **Langkah 8:** Menghasilkan angka acak antara 0 dan 9, dan menambahkannya ke dalam stream menggunakan `numberStream.addNumberToSink(myNum)`. Namun, sebelum menambahkan angka ke dalam stream, kode memeriksa apakah controller untuk stream tersebut sudah ditutup atau belum dengan `!numberSteamController.isClosed`. Jika controller sudah ditutup, maka `lastNumber` diperbarui menjadi -1.
+
+<img src="docs/soal-9.gif" style="width: 400px" alt='Screenshot hasil soal 9'>
+
+<img src="docs/soal-9.png" style="width: 400px" alt='Screenshot hasil soal 9'>
 
 ---
