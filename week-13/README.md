@@ -79,3 +79,15 @@ Langkah 2, 6, dan 8 dalam kode tersebut adalah implementasi `StreamSubscription`
 <img src="docs/soal-9.png" style="width: 400px" alt='Screenshot hasil soal 9'>
 
 ---
+
+## Soal 10
+
+Error ***Bad state: Stream has already been listened to*** biasanya terjadi saat mencoba mendengarkan (listen) ke sebuah stream lebih dari satu kali. Dalam Dart, sebuah stream umumnya hanya dapat didengarkan satu kali. Jika mencoba mendengarkan stream yang sama lebih dari sekali, akan menghasilkan error ini.
+
+<img src="docs/soal-10.png" style="width: 400px" alt='Screenshot hasil soal 10'>
+
+## Soal 11
+
+Stream dapat didengarkan lebih dari satu kali dengan menggunakan `stream.asBroadcastStream()`. Ini digunakan untuk menangani error pada langkah 10 yang biasanya tidak diizinkan dalam Dart.
+
+<img src="docs/soal-11.gif" style="width: 400px" alt='Screenshot hasil soal 11'>
