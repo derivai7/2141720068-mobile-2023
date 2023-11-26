@@ -72,7 +72,7 @@ Langkah 2, 6, dan 8 dalam kode tersebut adalah implementasi `StreamSubscription`
 
 - **Langkah 6:** `subscription.cancel()` dipanggil untuk membatalkan langganan ke stream dan mencegah memory leak.
 
-- **Langkah 8:** Menghasilkan angka acak antara 0 dan 9, dan menambahkannya ke dalam stream menggunakan `numberStream.addNumberToSink(myNum)`. Namun, sebelum menambahkan angka ke dalam stream, kode memeriksa apakah controller untuk stream tersebut sudah ditutup atau belum dengan `!numberSteamController.isClosed`. Jika controller sudah ditutup, maka `lastNumber` diperbarui menjadi -1.
+- **Langkah 8:** Menghasilkan angka acak antara 0 dan 9, dan menambahkannya ke dalam stream menggunakan `numberStream.addNumberToSink(myNum)`. Namun, sebelum menambahkan angka ke dalam stream, kode memeriksa apakah controller untuk stream tersebut sudah ditutup atau belum dengan `!numberStreamController.isClosed`. Jika controller sudah ditutup, maka `lastNumber` diperbarui menjadi -1.
 
 <img src="docs/soal-9.gif" style="width: 400px" alt='Screenshot hasil soal 9'>
 
@@ -86,8 +86,20 @@ Error ***Bad state: Stream has already been listened to*** biasanya terjadi saat
 
 <img src="docs/soal-10.png" style="width: 400px" alt='Screenshot hasil soal 10'>
 
+---
+
 ## Soal 11
 
 Stream dapat didengarkan lebih dari satu kali dengan menggunakan `stream.asBroadcastStream()`. Ini digunakan untuk menangani error pada langkah 10 yang biasanya tidak diizinkan dalam Dart.
 
 <img src="docs/soal-11.gif" style="width: 400px" alt='Screenshot hasil soal 11'>
+
+---
+
+### Soal 12
+
+Berikut penjelasannya langkah 3 dan 7 dalam kode tersebut:
+
+- **Langkah 3:** Ini adalah definisi dari kelas `NumberStream` yang memiliki metode `getNumbers`. Metode ini berperan sebagai generator yang menggunakan `Stream.periodic` untuk menghasilkan event setiap detik. Nilai yang dihasilkan oleh setiap event adalah angka acak antara 0 dan 9.
+
+- **Langkah 7:** Ini merupakan bagian dari metode `build` yang mengembalikan sebuah `StreamBuilder`. `StreamBuilder` ini berfungsi untuk mendengarkan stream dari `numberStream` dan membangun ulang widget setiap kali event baru datang dari stream. Jika stream menghasilkan error, maka `Text('Error')` akan ditampilkan. Jika stream menghasilkan data, maka data tersebut akan ditampilkan dalam `Text` widget. Jika tidak ada data atau error, maka `SizedBox.shrink()` ditampilkan untuk membuat widget dengan ukuran sekecil mungkin agar tidak memberikan dimensi yang memengaruhi tata letak umum.
