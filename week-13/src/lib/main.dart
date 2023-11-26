@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'stream.dart';
@@ -32,25 +35,44 @@ class StreamHomePage extends StatefulWidget {
 class _StreamHomePageState extends State<StreamHomePage> {
   Color bgColor = Colors.blueGrey;
   late ColorStream colorStream;
+  int lastNumber = 0;
+  late StreamController numberSteamController;
+  late NumberStream numberStream;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Stream Bahtiar Rifa\'i'),
-      ),
-      body: Container(
-        decoration: BoxDecoration(color: bgColor),
-      ),
-    );
+        appBar: AppBar(
+          title: const Text('Stream Bahtiar Rifa\'i'),
+        ),
+        body: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(lastNumber.toString()),
+              ElevatedButton(
+                onPressed: () => addRandomNumber(),
+                child: const Text('New Random Number'),
+              )
+            ],
+          ),
+        ));
   }
 
   @override
   void initState() {
     super.initState();
 
-    colorStream = ColorStream();
-    changeColor();
+    numberStream = NumberStream();
+    numberSteamController = numberStream.controller;
+    Stream stream = numberSteamController.stream;
+    stream.listen((event) {
+      setState(() {
+        lastNumber = event;
+      });
+    });
   }
 
   void changeColor() async {
@@ -65,5 +87,18 @@ class _StreamHomePageState extends State<StreamHomePage> {
         bgColor = event;
       });
     });
+  }
+
+  void addRandomNumber() {
+    Random random = Random();
+    int myNum = random.nextInt(10);
+    numberStream.addNumberToSink(myNum);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    numberSteamController.close();
   }
 }
