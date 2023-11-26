@@ -49,3 +49,17 @@ Berikut penjelasan Langkah 13 hingga 15:
 - Langkah 15: Ini adalah implementasi dari metode `addRandomNumber` yang sekarang memanggil `numberStream.addError()`. Ini berarti bahwa setiap kali metode `addRandomNumber` dipanggil, sebuah event error akan ditambahkan ke dalam stream dan fungsi yang didaftarkan dalam `onError` akan dipanggil.
 
 ---
+
+## Soal 8
+
+Langkah 1 hingga 3 dalam kode tersebut adalah implementasi stream dengan menggunakan `StreamTransformer`. Berikut penjelasannya:
+
+- **Langkah 1:** Deklarasi variabel `transformer` sebagai `StreamTransformer` yang akan digunakan untuk menyimpan transformasi stream.
+
+- **Langkah 2:** Membuat `StreamTransformer` dengan menggunakan `StreamTransformer.fromHandlers`. `handleData` dipanggil setiap event baru datang dari stream dan mengalikan nilai event dengan 10 sebelum menambahkannya ke sink. `handleError` dipanggil setiap terjadi error dan menambahkan -1 ke sink. `handleDone` dipanggil ketika tidak ada event atau terjadi error dari stream dan menutup sink.
+
+- **Langkah 3:** Stream diubah dengan `stream.transform(transformer)`. Fungsi ini memperbarui `lastNumber` dengan nilai event terbaru. `onError` digunakan untuk menangani error yang datang dari stream dan memperbarui `lastNumber` menjadi -1 setiap kali error terjadi.
+
+<img src="docs/soal-8.gif" style="width: 400px" alt='Screenshot hasil soal 8'>
+
+---
